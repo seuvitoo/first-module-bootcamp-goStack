@@ -12,12 +12,17 @@ function App() {
 
   useEffect(() => {
     api.get('/projects').then(response => {
-       setProjects(response.data)
+      setProjects(response.data)
     })
-  }, [])
+  }, [projects])
 
-  function handleAddProject()
-    setProjects([...projects, `Novo Projeto ${Date.now()}`]);
+  function handleAddProject() {
+    //setProjects([...projects, `Novo Projeto ${Date.now()}`]);
+
+    api.post('projects', {
+      title: `Novo Projeto ${Date.now()}`,
+      owner: "Victor dos Santos"
+    });
   }
 
 
