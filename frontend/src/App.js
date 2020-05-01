@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import api from './services/api'
+
 import './App.css'
+
 import img from './assets/image.png';
 
 import Header from './components/Header'
 function App() {
-  // estado recebe duas variaveis: primeira é a variavel declarada e a segunda é uma função para alterar valor
-  // da primeira variavel
-  const [projects, setProjects] = useState(['Desenvolvimento NodeJs', 'FrontEnd com ReactJs'])
 
-  function handleAddProject() {
+  const [projects, setProjects] = useState([])
 
-    //o setProjects não pode alterar diretamente um dado, então preciso usar um spred para
-    //pegar os primeiros dados da minha variavel e no segundo parametro estou add uma nova informação
+  useEffect(() => {
+    api.get('/projects').then(response => {
+       setProjects(response.data)
+    })
+  }, [])
+
+  function handleAddProject()
     setProjects([...projects, `Novo Projeto ${Date.now()}`]);
   }
 
@@ -23,7 +27,7 @@ function App() {
 
       <img width={100} src={img} alt="background" />
       <ul>
-        {projects.map(project => <li key={project}>{project}</li>)}
+        {projects.map(project => <li key={project.id}>{project.title}</li>)}
       </ul>
       <button type="button" onClick={handleAddProject}>Adicionar Projeto</button>
     </>

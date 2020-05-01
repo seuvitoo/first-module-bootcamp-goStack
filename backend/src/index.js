@@ -1,7 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const { uuid, isUuid } = require('uuidv4')
 
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 
 const projects = [];
@@ -36,7 +39,6 @@ app.get('/projects', (request, response) => {
 
 app.post('/projects', (request, response) => {
   const { title, owner } = request.body;
-  console.log(title)
 
   const project = { id: uuid(), title, owner }
 
