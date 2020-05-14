@@ -30,3 +30,39 @@ yarn.lock
 #frontend
 frontend/node_modules
 frontend/package-lock.json
+
+
+################# Mobile
+
+
+# node.js
+#
+mobile/node_modules/
+mobile/npm-debug.log
+mobile/yarn-error.log
+
+# BUCK
+mobile/buck-out/
+mobile/\.buckd/
+mobile/*.keystore
+mobile/!debug.keystore
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
+
+mobile/*/fastlane/report.xml
+mobile/*/fastlane/Preview.html
+mobile/*/fastlane/screenshots
+
+# Bundle artifact
+mobile/*.jsbundle
+
+# CocoaPods
+mobile/ios/Pods/
+
+mobile/yarn.lock
+
