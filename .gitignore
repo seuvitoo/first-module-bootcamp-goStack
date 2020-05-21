@@ -66,3 +66,8 @@ mobile/ios/Pods/
 
 mobile/yarn.lock
 
+### typescrip
+
+/typescript/node_modules
+/typescript/yarn.lock
+
